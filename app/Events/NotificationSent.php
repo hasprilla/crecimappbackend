@@ -20,9 +20,14 @@ class NotificationSent implements ShouldBroadcast
     {
         $this->message = $message;
     }
-   
+  
     public function broadcastOn()
     {
-        return new Channel('notifications');
+        return ['my-channel'];
+    }
+  
+    public function broadcastAs()
+    {
+        return 'my-event';
     }
 }
