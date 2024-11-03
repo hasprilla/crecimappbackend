@@ -16,16 +16,17 @@ class NotificationSent implements ShouldBroadcast
 
     public $message;
 
+
     public function __construct($message)
     {
         $this->message = $message;
     }
-  
+
     public function broadcastOn()
     {
-        return ['my-channel'];
+        return new Channel('chat');
     }
-  
+
     public function broadcastAs()
     {
         return 'my-event';
